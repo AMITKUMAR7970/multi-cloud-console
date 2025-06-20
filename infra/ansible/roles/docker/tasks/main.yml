@@ -1,0 +1,11 @@
+- name: Install Docker on Ubuntu
+  apt:
+    name: docker.io
+    state: present
+    update_cache: yes
+
+- name: Ensure Docker is started
+  service:
+    name: docker
+    state: started
+    enabled: yes

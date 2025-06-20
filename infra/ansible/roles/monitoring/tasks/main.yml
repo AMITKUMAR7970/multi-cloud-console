@@ -1,0 +1,23 @@
+- name: Install Prometheus
+  apt:
+    name: prometheus
+    state: present
+    update_cache: yes
+
+- name: Install Grafana
+  apt:
+    name: grafana
+    state: present
+    update_cache: yes
+
+- name: Ensure Prometheus is started
+  service:
+    name: prometheus
+    state: started
+    enabled: yes
+
+- name: Ensure Grafana is started
+  service:
+    name: grafana-server
+    state: started
+    enabled: yes

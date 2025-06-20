@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "hybrid-cloud-manager.fullname" . }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ include "hybrid-cloud-manager.name" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "hybrid-cloud-manager.name" . }}
+    spec:
+      containers:
+        - name: hybrid-cloud-manager
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          ports:
+            - containerPort: 8000

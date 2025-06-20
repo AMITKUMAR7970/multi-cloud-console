@@ -1,0 +1,49 @@
+{
+  "id": null,
+  "title": "Cloud Cost Overview",
+  "timezone": "browser",
+  "schemaVersion": 30,
+  "version": 1,
+  "refresh": "1h",
+  "panels": [
+    {
+      "type": "stat",
+      "title": "AWS Monthly Cost",
+      "datasource": "Prometheus",
+      "targets": [
+        {
+          "expr": "aws_monthly_cost_usd",
+          "legendFormat": "AWS"
+        }
+      ],
+      "fieldConfig": {"defaults": {"unit": "currencyUSD"}},
+      "gridPos": {"x": 0, "y": 0, "w": 4, "h": 4}
+    },
+    {
+      "type": "stat",
+      "title": "Azure Monthly Cost",
+      "datasource": "Prometheus",
+      "targets": [
+        {
+          "expr": "azure_monthly_cost_usd",
+          "legendFormat": "Azure"
+        }
+      ],
+      "fieldConfig": {"defaults": {"unit": "currencyUSD"}},
+      "gridPos": {"x": 4, "y": 0, "w": 4, "h": 4}
+    },
+    {
+      "type": "stat",
+      "title": "GCP Monthly Cost",
+      "datasource": "Prometheus",
+      "targets": [
+        {
+          "expr": "gcp_monthly_cost_usd",
+          "legendFormat": "GCP"
+        }
+      ],
+      "fieldConfig": {"defaults": {"unit": "currencyUSD"}},
+      "gridPos": {"x": 8, "y": 0, "w": 4, "h": 4}
+    }
+  ]
+}
